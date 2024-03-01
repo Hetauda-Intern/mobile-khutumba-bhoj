@@ -35,12 +35,12 @@ class _AllFoodState extends State<AllFood> {
               },
               child: SizedBox(
                 height: 50,
-                child: Image.asset('assets/images/logo.png'),
+                child: Image.network('https://imgur.com/F9quUPN.png'),
               ),
             ),
             SizedBox(
               height: 50,
-              child: Image.asset('assets/images/profile.png'),
+              child: Image.network('https://imgur.com/XNF5Qjp.png'),
             ),
           ],
         ),
@@ -84,8 +84,8 @@ class _AllFoodState extends State<AllFood> {
             height: 48,
             padding: const EdgeInsets.all(15),
             color: yellow,
-            child: Image.asset(
-              'assets/images/search.png',
+            child: Image.network(
+              'https://imgur.com/OfelT5c.png',
               height: 10,
             ),
           ),
@@ -113,7 +113,7 @@ class _AllFoodState extends State<AllFood> {
             padding: const EdgeInsets.all(15),
             color: yellow,
             child: Image.asset(
-              'assets/images/notifications.png',
+              'https://imgur.com/DYnFgH8.png',
               height: 10,
             ),
           )
@@ -161,8 +161,8 @@ class _AllFoodState extends State<AllFood> {
                           child: SizedBox(
                             height: 70,
                             width: 175,
-                            child: Image.asset(
-                              'assets/images/nonveg.png',
+                            child: Image.network(
+                              'https://imgur.com/HWiEV7G.png',
                               width: 175,
                               height: 70,
                               fit: BoxFit.cover,
