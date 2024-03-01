@@ -44,7 +44,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/icon/mlogo.png"
+  image_path: "assets/icon/logo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -62,39 +62,6 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
-  assets:
-    # logo
-    - assets/images/logo.png
-    - assets/images/googleLogo.png
-    - assets/images/fbLogo.png
-    - assets/images/profile.png
-    - assets/images/notifications.png
-    - assets/images/search.png
-    - assets/images/bikeLogo.png
-    - assets/icon/logo.png
-    - assets/images/logo.png
-    - assets/images/hankook.png
-    - assets/images/workshop.png
-    - assets/images/marcopolo.png
-    - assets/images/marriott.png
-    - assets/images/sub.png
-    - assets/images/nonveg.png
-    - assets/images/veg.png
-    - assets/images/pizza.png
-    - assets/images/momo.png
-    - assets/images/sweets.png
-    - assets/images/korean.png
-
-    # Food
-    - assets/images/exploreFood.jpg
-    - assets/images/foods/pancake.jpg
-    # restaurants
-    - assets/images/restaurants/res1.png
-    - assets/images/restaurants/res2.png
-    - assets/images/restaurants/res3.jpg
-  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

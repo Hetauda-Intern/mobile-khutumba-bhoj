@@ -34,8 +34,8 @@ class Profile extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                      child: Image.asset(
-                        'assets/images/profile.png',
+                      child: Image.network(
+                        'https://imgur.com/XNF5Qjp.png',
                         height: 150,
                         width: 150,
                       ),

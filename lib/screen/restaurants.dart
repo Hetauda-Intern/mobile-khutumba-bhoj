@@ -74,23 +74,23 @@ class _RestaurantsState extends State<Restaurants> {
               mainAxisSpacing: 10.0,
               children: const [
                 RestaurantCard(
-                  logo: 'assets/images/hankook.png',
+                  logo: 'https://imgur.com/PJb5laS.png',
                   name: 'Hankook Sarang Restaurant',
                 ),
                 RestaurantCard(
-                  logo: 'assets/images/workshop.png',
+                  logo: 'https://imgur.com/0cMSqKk.png',
                   name: 'Workshop Eatery',
                 ),
                 RestaurantCard(
-                  logo: 'assets/images/marcopolo.png',
-                  name: 'Marcopolo Resturant',
+                  logo: 'https://imgur.com/KEiohVU.png',
+                  name: 'Marcopolo Restaurant',
                 ),
                 RestaurantCard(
-                  logo: 'assets/images/marriott.png',
+                  logo: 'https://imgur.com/2dtK8X1.png',
                   name: 'Marriott Nepal',
                 ),
                 RestaurantCard(
-                  logo: 'assets/images/sub.png',
+                  logo: 'https://imgur.com/5Oi35uA.png',
                   name: 'Sub Express',
                 ),
               ],
@@ -165,7 +165,7 @@ class RestaurantCard extends StatelessWidget {
               borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(10),
               ),
-              child: Image.asset(
+              child: Image.network(
                 logo,
                 fit: BoxFit.contain,
                 height: 100,

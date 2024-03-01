@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_management_system/screen/get_started.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key});
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +12,11 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/logo.png',
+            Image(
+              image: NetworkImage('https://imgur.com/VWVm9ax.png'),
               width: 390,
               height: 200,
+              fit: BoxFit.contain,
             ),
             SizedBox(height: 20),
             GestureDetector(

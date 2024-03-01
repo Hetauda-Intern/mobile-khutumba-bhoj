@@ -19,7 +19,7 @@ class Login extends StatelessWidget {
             children: [
               Container(
                 height: 200,
-                child: Image.asset('assets/images/logo.png'),
+                child: Image.network('https://imgur.com/VWVm9ax.png'),
               ),
               Container(
                 child: Padding(
@@ -133,8 +133,8 @@ class Login extends StatelessWidget {
                               children: [
                                 Container(
                                   height: 25,
-                                  child:
-                                      Image.asset('assets/images/fbLogo.png'),
+                                  child: Image.network(
+                                      'https://imgur.com/7IXPSIa.png'),
                                 ),
                                 const SizedBox(
                                   width: 8.0,
@@ -163,8 +163,8 @@ class Login extends StatelessWidget {
                               children: [
                                 Container(
                                   height: 20,
-                                  child: Image.asset(
-                                      'assets/images/googleLogo.png'),
+                                  child: Image.network(
+                                      'https://imgur.com/avjP8y1.png'),
                                 ),
                                 const SizedBox(width: 8.0),
                                 Text('Continue with Google'),

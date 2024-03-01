@@ -32,12 +32,12 @@ class _RestaurantState extends State<Restaurant> {
               },
               child: SizedBox(
                 height: 50,
-                child: Image.asset('assets/images/logo.png'),
+                child: Image.network('https://imgur.com/VWVm9ax.png'),
               ),
             ),
             SizedBox(
               height: 50,
-              child: Image.asset('assets/images/profile.png'),
+              child: Image.network('https://imgur.com/XNF5Qjp.png'),
             ),
           ],
         ),
@@ -110,8 +110,8 @@ class _RestaurantState extends State<Restaurant> {
             height: 48,
             padding: const EdgeInsets.all(15),
             color: yellow,
-            child: Image.asset(
-              'assets/images/search.png',
+            child: Image.network(
+              'https://imgur.com/OfelT5c.png',
               height: 10,
             ),
           ),
@@ -138,8 +138,8 @@ class _RestaurantState extends State<Restaurant> {
             height: 48,
             padding: const EdgeInsets.all(15),
             color: yellow,
-            child: Image.asset(
-              'assets/images/notifications.png',
+            child: Image.network(
+              'https://imgur.com/DYnFgH8.png',
               height: 10,
             ),
           )
@@ -157,7 +157,7 @@ class _RestaurantState extends State<Restaurant> {
             children: [
               Container(
                 height: 46,
-                child: Image.asset('assets/images/restaurants/res1.png'),
+                child: Image.network('https://imgur.com/MH9neTr.png'),
               ),
               const SizedBox(width: 10),
               const Text(
@@ -200,8 +200,8 @@ class _RestaurantState extends State<Restaurant> {
                         SizedBox(
                           height: 70,
                           width: 175,
-                          child: Image.asset(
-                            'assets/images/foods/pancake.jpg',
+                          child: Image.network(
+                            'https://imgur.com/GCg8pZJ.jpg',
                             width: 175,
                             height: 70,
                             fit: BoxFit.cover,

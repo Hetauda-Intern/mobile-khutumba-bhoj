@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
           children: [
             SizedBox(
               height: 50,
-              child: Image.asset('assets/images/logo.png'),
+              child: Image.network('https://imgur.com/VWVm9ax.png'),
             ),
             SizedBox(
               height: 50,
@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
                     ),
                   );
                 },
-                child: Image.asset('assets/images/profile.png'),
+                child: Image.network('https://imgur.com/XNF5Qjp.png'),
               ),
             ),
           ],
@@ -130,8 +130,8 @@ class _HomeState extends State<Home> {
             height: 48,
             padding: const EdgeInsets.all(15),
             color: yellow,
-            child: Image.asset(
-              'assets/images/search.png',
+            child: Image.network(
+              'https://imgur.com/OfelT5c.png',
               height: 10,
             ),
           ),
@@ -173,8 +173,8 @@ class _HomeState extends State<Home> {
             height: 48,
             padding: const EdgeInsets.all(15),
             color: yellow,
-            child: Image.asset(
-              'assets/images/notifications.png',
+            child: Image.network(
+              'https://imgur.com/DYnFgH8.png',
               height: 10,
             ),
           )
@@ -202,8 +202,8 @@ class _HomeState extends State<Home> {
             ),
           ),
           Container(
-            child: Image.asset(
-              'assets/images/exploreFood.jpg',
+            child: Image.network(
+              'https://imgur.com/S879gkU.jpg',
               height: 126,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -304,8 +304,8 @@ class _HomeState extends State<Home> {
                           children: [
                             Container(
                               height: 46,
-                              child: Image.asset(
-                                  'assets/images/restaurants/res1.png'),
+                              child: Image.network(
+                                  'https://imgur.com/KEiohVU.png'),
                             ),
                             const Text(
                               'Marcopolo Restaurant',
@@ -385,8 +385,8 @@ class _HomeState extends State<Home> {
                         SizedBox(
                           height: 70,
                           width: 175,
-                          child: Image.asset(
-                            'assets/images/foods/pancake.jpg',
+                          child: Image.network(
+                            'https://imgur.com/GCg8pZJ.jpg',
                             width: 175,
                             height: 70,
                             fit: BoxFit.cover,

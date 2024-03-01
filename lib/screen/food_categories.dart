@@ -77,28 +77,28 @@ class _FoodCategoriesState extends State<FoodCategories> {
                   onTap: () => Navigator.push(context,
                       MaterialPageRoute(builder: (builder) => const AllFood())),
                   child: RestaurantCard(
-                    logo: 'assets/images/nonveg.png',
+                    logo: 'https://imgur.com/HWiEV7G.png',
                     name: 'Non-Veg',
                   ),
                 ),
                 RestaurantCard(
-                  logo: 'assets/images/veg.png',
+                  logo: 'https://imgur.com/xWKpjml.png',
                   name: 'Veg',
                 ),
                 RestaurantCard(
-                  logo: 'assets/images/momo.png',
+                  logo: 'https://imgur.com/bmJUwqc.png',
                   name: 'Mo:Mo',
                 ),
                 RestaurantCard(
-                  logo: 'assets/images/pizza.png',
+                  logo: 'https://imgur.com/LT5cIKN.png',
                   name: 'Pizza',
                 ),
                 RestaurantCard(
-                  logo: 'assets/images/korean.png',
+                  logo: 'https://imgur.com/OFK2yvD.png',
                   name: 'Korean',
                 ),
                 RestaurantCard(
-                  logo: 'assets/images/sweets.png',
+                  logo: 'https://imgur.com/k6qFh8K.png',
                   name: 'Sweets',
                 ),
               ],
@@ -161,7 +161,7 @@ class RestaurantCard extends StatelessWidget {
             Expanded(
               child: ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-                child: Image.asset(
+                child: Image.network(
                   logo,
                   fit: BoxFit.cover,
                 ),

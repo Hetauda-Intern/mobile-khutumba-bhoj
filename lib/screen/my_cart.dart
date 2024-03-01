@@ -45,7 +45,7 @@ class _MyCartState extends State<MyCart> {
             child: ListView(
               children: [
                 RestaurantCard(
-                  logo: 'assets/images/nonveg.png',
+                  logo: 'https://imgur.com/HWiEV7G.png',
                   name: 'Chicken Khana Set',
                   price: 550,
                   deliveryCharge: _deliveryCharge,
@@ -131,7 +131,7 @@ class RestaurantCard extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 5),
-              Image.asset(
+              Image.network(
                 logo,
                 height: 200,
                 width: double.infinity,

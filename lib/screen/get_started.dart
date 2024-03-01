@@ -18,7 +18,7 @@ class GetStarted extends StatelessWidget {
             children: [
               SizedBox(
                 height: 200,
-                child: Image.asset('assets/images/bikeLogo.png'),
+                child: Image.network('https://imgur.com/Dr8GRRP.png'),
               ),
               const SizedBox(
                 height: 60,
