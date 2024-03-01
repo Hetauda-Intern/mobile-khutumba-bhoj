@@ -77,7 +77,7 @@ class Login extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Home()));
+                                      builder: (context) => GetStarted()));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:

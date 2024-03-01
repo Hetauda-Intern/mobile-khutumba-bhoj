@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:food_management_system/screen/food_des.dart';
 import './home.dart';
 
 import '../context/colors.dart';
@@ -35,7 +34,7 @@ class _AllFoodState extends State<AllFood> {
               },
               child: SizedBox(
                 height: 50,
-                child: Image.network('https://imgur.com/F9quUPN.png'),
+                child: Image.network('https://imgur.com/VWVm9axpng'),
               ),
             ),
             SizedBox(
@@ -153,20 +152,14 @@ class _AllFoodState extends State<AllFood> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        InkWell(
-                          onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (builder) => const FoodDes())),
-                          child: SizedBox(
-                            height: 70,
+                        SizedBox(
+                          height: 70,
+                          width: 175,
+                          child: Image.network(
+                            'https://imgur.com/GCg8pZJ.jpg',
                             width: 175,
-                            child: Image.network(
-                              'https://imgur.com/HWiEV7G.png',
-                              width: 175,
-                              height: 70,
-                              fit: BoxFit.cover,
-                            ),
+                            height: 70,
+                            fit: BoxFit.cover,
                           ),
                         ),
                         Container(

@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import '../context/colors.dart';
-import './edit_profile.dart';
+import './home.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+class EditProfile extends StatefulWidget {
+  const EditProfile({super.key});
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<EditProfile> createState() => _EditProfile();
 }
 
-class _ProfileState extends State<Profile> {
+class _EditProfile extends State<EditProfile> {
   bool notificationsEnabled = false;
-  bool locationsEnabled = true;
-
+  int _currentIndex = 0;
+  final tabs = [
+    Center(child: Home()),
+    Center(child: Home()),
+    Center(child: Home()),
+    Center(child: Home()),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +25,7 @@ class _ProfileState extends State<Profile> {
         backgroundColor: yellow,
         automaticallyImplyLeading: true,
         title: const Text(
-          'Profile',
+          'Edit Profile',
           style: TextStyle(fontSize: 36),
         ),
       ),
@@ -53,34 +58,11 @@ class _ProfileState extends State<Profile> {
                       )
                     ],
                   ),
-                  Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 10),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EditProfile()));
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            foregroundColor: Colors.black,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          child: const Text('Edit Profile'),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
               ),
             ),
             Container(
-              height: 700,
+              height: 610,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -203,16 +185,12 @@ class _ProfileState extends State<Profile> {
                       ],
                     ),
                   ),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 30),
-                        child: const Text(
-                          'Notifications',
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ),
                       Container(
                         decoration: const BoxDecoration(
                           // border: Border.all(width: 1),
@@ -230,110 +208,61 @@ class _ProfileState extends State<Profile> {
                         ),
                         padding: const EdgeInsets.symmetric(
                             vertical: 20, horizontal: 10),
-                        child: Column(
+                        child: const Column(
                           children: [
-                            // Row(
-                            //   children: [
-                            //     const Text(
-                            //       'Allow Notification',
-                            //       style: TextStyle(fontSize: 24),
-                            //     ),
-                            //     Switch(
-                            //         value: notificationsEnabled,
-                            //         onChanged: (bool value) {
-                            //           setState(() {
-                            //             notificationsEnabled = value;
-                            //           });
-                            //         }),
-                            //   ],
-                            // ),
-                            SwitchListTile(
-                                contentPadding: EdgeInsets.zero,
-                                title: const Text(
-                                  'Allow Notification',
-                                  style: TextStyle(fontSize: 24),
-                                ),
-                                value: notificationsEnabled,
-                                activeColor: Colors.blue,
-                                inactiveTrackColor: Colors.white,
-                                onChanged: (bool value) {
-                                  setState(() {
-                                    notificationsEnabled = value;
-                                  });
-                                }),
-                            const Row(
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
-                                  child: Divider(
-                                    color: Colors.grey,
+                                SizedBox(
+                                  child: Text(
+                                    'Remove Account ',
+                                    style: TextStyle(fontSize: 24),
                                   ),
+                                ),
+                                SizedBox(
+                                  child: Icon(Icons.delete),
                                 ),
                               ],
                             ),
-                            SwitchListTile(
-                                contentPadding: EdgeInsets.zero,
-                                title: const Text(
-                                  'Location',
-                                  style: TextStyle(fontSize: 24),
-                                ),
-                                activeColor: Colors.blue,
-                                inactiveTrackColor: Colors.white,
-                                value: locationsEnabled,
-                                onChanged: (bool value) {
-                                  setState(() {
-                                    locationsEnabled = value;
-                                  });
-                                }),
-                            // SizedBox(
-                            //   child: Switch(
-                            //     value: notificationsEnabled,
-                            //     onChanged: () {},
-                            //   ),
-                            // ),
                           ],
                         ),
                       )
                     ],
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      // border: Border.all(width: 1),
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      boxShadow: [
-                        BoxShadow(
-                          blurStyle: BlurStyle.outer,
-                          color: Colors.grey,
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                          offset: Offset(0, 0),
-                        ),
-                      ],
-                    ),
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: const Text(
-                        'Log Out',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ),
                   ),
                 ],
               ),
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        backgroundColor: yellow,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.black,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Inbox',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Accounts',
+          )
+        ],
       ),
     );
   }

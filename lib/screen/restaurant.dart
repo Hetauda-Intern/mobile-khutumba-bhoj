@@ -157,7 +157,7 @@ class _RestaurantState extends State<Restaurant> {
             children: [
               Container(
                 height: 46,
-                child: Image.network('https://imgur.com/MH9neTr.png'),
+                child: Image.network('https://imgur.com/VoeBlYV.png'),
               ),
               const SizedBox(width: 10),
               const Text(
