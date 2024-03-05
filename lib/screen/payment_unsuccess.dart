@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class PaymentSuccess extends StatelessWidget {
+class PaymentUsuccess extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.amber, // Red background color
       appBar: AppBar(
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.amber, // Red app bar color
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: Colors.black), // White close icon
           onPressed: () {},
         ),
       ),
@@ -17,10 +17,17 @@ class PaymentSuccess extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.check_circle,
-              color: Colors.green,
-              size: 48,
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.red, // White background for icon container
+                shape: BoxShape.circle, // Circular shape for icon container
+              ),
+              padding: EdgeInsets.all(16), // Padding for icon container
+              child: Icon(
+                Icons.close, // Close icon
+                color: Colors.white, // Red color for close icon
+                size: 48,
+              ),
             ),
             SizedBox(height: 20),
             Text(
@@ -88,9 +95,9 @@ class PaymentSuccess extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Rs 850 (Paid)',
+                        'Rs 850 (Rejected)',
                         style: TextStyle(
-                          color: Colors.green,
+                          color: Colors.red,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -103,10 +110,10 @@ class PaymentSuccess extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.red,
               ),
               child: Text(
-                'Done',
+                'Try Again',
                 style: TextStyle(
                   color: Colors.white,
                 ),
