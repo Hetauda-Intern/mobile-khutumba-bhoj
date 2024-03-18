@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_management_system/screen/log_in.dart';
 import 'welcome_screen.dart';
-import 'restaurants.dart';
+import 'restaurant_category.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key});

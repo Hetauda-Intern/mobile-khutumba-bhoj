@@ -18,29 +18,8 @@ class _RestaurantState extends State<Restaurant> {
     return Scaffold(
       backgroundColor: bg,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         backgroundColor: bg,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()),
-                );
-              },
-              child: SizedBox(
-                height: 50,
-                child: Image.network('https://imgur.com/VWVm9ax.png'),
-              ),
-            ),
-            SizedBox(
-              height: 50,
-              child: Image.network('https://imgur.com/XNF5Qjp.png'),
-            ),
-          ],
-        ),
       ),
       body: Stack(
         children: [
@@ -60,35 +39,35 @@ class _RestaurantState extends State<Restaurant> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        backgroundColor: yellow,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.black,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Inbox',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Accounts',
-          )
-        ],
-      ),
+      //   bottomNavigationBar: BottomNavigationBar(
+      //     currentIndex: _currentIndex,
+      //     onTap: (index) {
+      //       setState(() {
+      //         _currentIndex = index;
+      //       });
+      //     },
+      //     backgroundColor: yellow,
+      //     type: BottomNavigationBarType.fixed,
+      //     selectedItemColor: Colors.black,
+      //     items: const [
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.home),
+      //         label: 'Home',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.chat),
+      //         label: 'Inbox',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.shopping_cart),
+      //         label: 'Cart',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.person),
+      //         label: 'Accounts',
+      //       )
+      //     ],
+      //   ),
     );
   }
 
@@ -100,7 +79,7 @@ class _RestaurantState extends State<Restaurant> {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 1), // changes the shadow position
+            offset: const Offset(0, 1), // changes the shadow position
           ),
         ],
       ),
@@ -111,7 +90,7 @@ class _RestaurantState extends State<Restaurant> {
             padding: const EdgeInsets.all(15),
             color: yellow,
             child: Image.network(
-              'https://imgur.com/OfelT5c.png',
+              'https://i.imgur.com/l05wZzv.png',
               height: 10,
             ),
           ),
@@ -139,10 +118,10 @@ class _RestaurantState extends State<Restaurant> {
             padding: const EdgeInsets.all(15),
             color: yellow,
             child: Image.network(
-              'https://imgur.com/DYnFgH8.png',
+              'https://i.imgur.com/kCGpyTU.png',
               height: 10,
             ),
-          )
+          ),
         ],
       ),
     );
@@ -155,17 +134,21 @@ class _RestaurantState extends State<Restaurant> {
         children: [
           Row(
             children: [
-              Container(
-                height: 46,
-                child: Image.network('https://imgur.com/VoeBlYV.png'),
-              ),
-              const SizedBox(width: 10),
-              const Text(
-                'Marcopolo Restaurant',
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  color: black,
-                  fontSize: 20,
+              Expanded(
+                child: Container(
+                  color: Colors.amber,
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: const Center(
+                    child: Text(
+                      'Marcopolo Restaurant',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -201,7 +184,7 @@ class _RestaurantState extends State<Restaurant> {
                           height: 70,
                           width: 175,
                           child: Image.network(
-                            'https://imgur.com/GCg8pZJ.jpg',
+                            'https://i.imgur.com/28t6012.jpg',
                             width: 175,
                             height: 70,
                             fit: BoxFit.cover,

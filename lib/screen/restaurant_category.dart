@@ -1,23 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:food_management_system/screen/selected_category_food.dart';
+import 'package:food_management_system/screen/restaurant.dart';
 
-class FoodCategories extends StatefulWidget {
-  const FoodCategories({Key? key}) : super(key: key);
+class Restaurants extends StatefulWidget {
+  const Restaurants({Key? key}) : super(key: key);
 
   @override
-  _FoodCategoriesState createState() => _FoodCategoriesState();
+  _RestaurantsState createState() => _RestaurantsState();
 }
 
-class _FoodCategoriesState extends State<FoodCategories> {
+class _RestaurantsState extends State<Restaurants> {
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        automaticallyImplyLeading: true,
         backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {},
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications, color: Colors.black),
+            onPressed: () {},
+          ),
+        ],
         title: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
@@ -32,6 +42,13 @@ class _FoodCategoriesState extends State<FoodCategories> {
               ),
             ],
           ),
+          child: const TextField(
+            decoration: InputDecoration(
+              hintText: 'Search your favorite food here...',
+              border: InputBorder.none,
+              icon: Icon(Icons.search, color: Colors.black),
+            ),
+          ),
         ),
       ),
       body: Column(
@@ -39,10 +56,11 @@ class _FoodCategoriesState extends State<FoodCategories> {
         children: [
           Container(
             color: Colors.amber,
+            margin: const EdgeInsets.symmetric(vertical: 10),
             padding: const EdgeInsets.all(5),
             child: const Center(
               child: Text(
-                'Food Categories',
+                'Restaurants',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -53,40 +71,30 @@ class _FoodCategoriesState extends State<FoodCategories> {
           ),
           Expanded(
             child: GridView.count(
-              crossAxisCount: 1,
+              crossAxisCount: 2,
               padding: const EdgeInsets.all(5.0),
-              crossAxisSpacing: 1.0,
-              mainAxisSpacing: 1.0,
-              children: [
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => const SellectedCategoryFood())),
-                  child: const RestaurantCard(
-                    logo: 'https://i.imgur.com/42h9Q55.png',
-                    name: 'Non-Veg',
-                  ),
+              crossAxisSpacing: 8.0,
+              mainAxisSpacing: 10.0,
+              children: const [
+                RestaurantCard(
+                  logo: 'https://imgur.com/PJb5laS.png',
+                  name: 'Hankook Sarang Restaurant',
                 ),
-                const RestaurantCard(
-                  logo: 'https://i.imgur.com/3BZbjCK.png',
-                  name: 'Veg',
+                RestaurantCard(
+                  logo: 'https://imgur.com/0cMSqKk.png',
+                  name: 'Workshop Eatery',
                 ),
-                const RestaurantCard(
-                  logo: 'https://i.imgur.com/rmUF2lk.png',
-                  name: 'Mo:Mo',
+                RestaurantCard(
+                  logo: 'https://imgur.com/KEiohVU.png',
+                  name: 'Marcopolo Restaurant',
                 ),
-                const RestaurantCard(
-                  logo: 'https://i.imgur.com/s9zRf0P.png',
-                  name: 'Pizza',
+                RestaurantCard(
+                  logo: 'https://imgur.com/2dtK8X1.png',
+                  name: 'Marriott Nepal',
                 ),
-                const RestaurantCard(
-                  logo: 'https://i.imgur.com/0RZyvsd.png',
-                  name: 'Korean',
-                ),
-                const RestaurantCard(
-                  logo: 'https://i.imgur.com/Eppc9ts.png',
-                  name: 'Sweets',
+                RestaurantCard(
+                  logo: 'https://imgur.com/5Oi35uA.png',
+                  name: 'Sub Express',
                 ),
               ],
             ),
@@ -137,28 +145,40 @@ class RestaurantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      margin: EdgeInsets.all(8),
-      child: SizedBox(
-        height: 100,
+    return GestureDetector(
+      onTap: () {
+        // Navigate to the restaurant details page or any other page
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const Restaurant(),
+          ),
+        );
+      },
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-                child: Image.network(
-                  logo,
-                  fit: BoxFit.cover,
-                ),
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(10),
+              ),
+              child: Image.network(
+                logo,
+                fit: BoxFit.contain,
+                height: 100,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_management_system/screen/get_started.dart';
+// import 'package:food_management_system/screen/get_started.dart';
+import './log_in.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -12,22 +13,22 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image(
-              image: NetworkImage('https://imgur.com/VWVm9ax.png'),
+            const Image(
+              image: NetworkImage('https://i.imgur.com/yfZLWge.png'),
               width: 390,
               height: 200,
               fit: BoxFit.contain,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => GetStarted(),
+                    builder: (context) => Login(),
                   ),
                 );
               },
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_forward,
                 size: 50,
                 color: Colors.white,

@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import './home.dart';
+import './sign_up_page.dart';
 import './get_started.dart';
 
 import '../context/colors.dart';
@@ -19,7 +19,7 @@ class Login extends StatelessWidget {
             children: [
               Container(
                 height: 200,
-                child: Image.network('https://imgur.com/VWVm9ax.png'),
+                child: Image.network('https://i.imgur.com/yfZLWge.png'),
               ),
               Container(
                 child: Padding(
@@ -134,7 +134,7 @@ class Login extends StatelessWidget {
                                 Container(
                                   height: 25,
                                   child: Image.network(
-                                      'https://imgur.com/7IXPSIa.png'),
+                                      'https://i.imgur.com/oUY8m32.png'),
                                 ),
                                 const SizedBox(
                                   width: 8.0,
@@ -164,7 +164,7 @@ class Login extends StatelessWidget {
                                 Container(
                                   height: 20,
                                   child: Image.network(
-                                      'https://imgur.com/avjP8y1.png'),
+                                      'https://i.imgur.com/lOvSjxm.png'),
                                 ),
                                 const SizedBox(width: 8.0),
                                 Text('Continue with Google'),
@@ -190,8 +190,12 @@ class Login extends StatelessWidget {
                                     ),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
-                                        // Add your link's tap logic here
-                                        print('Link tapped');
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => SignUpPage(),
+                                          ),
+                                        );
                                       },
                                   ),
                                 ],

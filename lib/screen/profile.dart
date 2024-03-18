@@ -34,7 +34,7 @@ class _ProfileState extends State<Profile> {
                   Row(
                     children: [
                       Image.network(
-                        'https://imgur.com/XNF5Qjp.png',
+                        'https://i.imgur.com/Ojl5wri.png',
                         height: 120,
                         width: 120,
                       ),
@@ -123,13 +123,13 @@ class _ProfileState extends State<Profile> {
                             SizedBox(
                               child: Text(
                                 'My order',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                             SizedBox(
                               child: Text(
                                 '>>',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                           ],
@@ -149,13 +149,13 @@ class _ProfileState extends State<Profile> {
                             SizedBox(
                               child: Text(
                                 'Payment Detail',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                             SizedBox(
                               child: Text(
                                 '>>',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                           ],
@@ -175,7 +175,7 @@ class _ProfileState extends State<Profile> {
                             SizedBox(
                               child: Text(
                                 'Location ',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                           ],
@@ -195,7 +195,7 @@ class _ProfileState extends State<Profile> {
                             SizedBox(
                               child: Text(
                                 'Change Password',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                           ],
@@ -232,26 +232,12 @@ class _ProfileState extends State<Profile> {
                             vertical: 20, horizontal: 10),
                         child: Column(
                           children: [
-                            // Row(
-                            //   children: [
-                            //     const Text(
-                            //       'Allow Notification',
-                            //       style: TextStyle(fontSize: 24),
-                            //     ),
-                            //     Switch(
-                            //         value: notificationsEnabled,
-                            //         onChanged: (bool value) {
-                            //           setState(() {
-                            //             notificationsEnabled = value;
-                            //           });
-                            //         }),
-                            //   ],
-                            // ),
+                          
                             SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
                                 title: const Text(
                                   'Allow Notification',
-                                  style: TextStyle(fontSize: 24),
+                                  style: TextStyle(fontSize: 20),
                                 ),
                                 value: notificationsEnabled,
                                 activeColor: Colors.blue,
@@ -274,7 +260,7 @@ class _ProfileState extends State<Profile> {
                                 contentPadding: EdgeInsets.zero,
                                 title: const Text(
                                   'Location',
-                                  style: TextStyle(fontSize: 24),
+                                  style: TextStyle(fontSize: 20),
                                 ),
                                 activeColor: Colors.blue,
                                 inactiveTrackColor: Colors.white,
@@ -325,7 +311,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       child: const Text(
                         'Log Out',
-                        style: TextStyle(fontSize: 24),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                   ),

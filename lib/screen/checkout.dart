@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../context/colors.dart';
+import './payment_success.dart';
+import './payment_unsuccess.dart';
 
 class Cart extends StatelessWidget {
   const Cart({super.key});
@@ -23,30 +25,30 @@ class Cart extends StatelessWidget {
                   children: [
                     Container(
                       child: Image.network(
-                        'https://imgur.com/GCg8pZJ.jpg',
+                        'https://i.imgur.com/28t6012.jpg',
                         height: 100,
                         width: 150,
                         fit: BoxFit.cover,
                       ),
                     ),
                     const SizedBox(
-                      width: 20,
+                      width: 30,
                     ),
                     const Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'PanCake',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: 20),
                         ),
                         Text(
                           'Rs.300',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: 20),
                         ),
                         Text(
-                          'Qty.',
-                          style: TextStyle(fontSize: 22),
+                          'Qty. 1',
+                          style: TextStyle(fontSize: 20),
                         ),
                       ],
                     ),
@@ -56,20 +58,21 @@ class Cart extends StatelessWidget {
               Container(
                 color: bg,
                 padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+                margin: const EdgeInsets.symmetric(vertical: 20),
                 child: Column(
                   children: [
                     const Row(
                       children: [
                         Text(
                           'Order Summary',
-                          style: TextStyle(fontSize: 32),
+                          style: TextStyle(fontSize: 24),
                         )
                       ],
                     ),
                     Container(
                       padding: const EdgeInsetsDirectional.symmetric(
-                          vertical: 30, horizontal: 10),
+                          vertical: 10, horizontal: 10),
                       child: const Column(
                         children: [
                           Row(
@@ -77,11 +80,11 @@ class Cart extends StatelessWidget {
                             children: [
                               Text(
                                 'Item Total',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 18),
                               ),
                               Text(
                                 'Rs.750',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 18),
                               ),
                             ],
                           ),
@@ -90,11 +93,11 @@ class Cart extends StatelessWidget {
                             children: [
                               Text(
                                 'Delivery fee',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 18),
                               ),
                               Text(
                                 'Rs.75',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 18),
                               ),
                             ],
                           ),
@@ -103,11 +106,11 @@ class Cart extends StatelessWidget {
                             children: [
                               Text(
                                 'Tex and Vat',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 18),
                               ),
                               Text(
                                 'Rs.0',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 18),
                               ),
                             ],
                           ),
@@ -116,11 +119,13 @@ class Cart extends StatelessWidget {
                             children: [
                               Text(
                                 'Total Payment',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 'Rs.825',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
@@ -134,16 +139,19 @@ class Cart extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Row(
+                    Row(
                       children: [
-                        Text(
-                          'Payment Method',
-                          style: TextStyle(fontSize: 22),
+                        Container(
+                          margin: const EdgeInsets.only(left: 5),
+                          child: const Text(
+                            'Payment Method',
+                            style: TextStyle(fontSize: 22),
+                          ),
                         )
                       ],
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 10,
                     ),
                     Row(
                       children: [
@@ -151,7 +159,13 @@ class Cart extends StatelessWidget {
                           width: 350,
                           height: 50,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PaymentSuccess()),
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
                               foregroundColor: Colors.black,
@@ -173,7 +187,13 @@ class Cart extends StatelessWidget {
                           width: 350,
                           height: 50,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PaymentUsuccess()),
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
                               foregroundColor: Colors.black,
@@ -229,12 +249,12 @@ class Cart extends StatelessWidget {
                                   ),
                                 ),
                                 child: Image.network(
-                                  'https://imgur.com/qBE8uBr.png',
+                                  'https://i.imgur.com/iqKJJ1p.png',
                                   fit: BoxFit.cover,
                                 ),
                               ),
                             ),
-                            Text(
+                            const Text(
                               'Scan',
                               style: TextStyle(fontSize: 24),
                             )

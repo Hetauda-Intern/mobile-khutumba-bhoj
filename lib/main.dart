@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food Management System',
-      home: PaymentUsuccess(),
-      // home: WelcomeScreen(),
+      // home: PaymentUsuccess(),
+      home: WelcomeScreen(),
     );
   }
 }

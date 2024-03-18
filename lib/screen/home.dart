@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:food_management_system/screen/restaurant_category.dart';
 import '../context/colors.dart';
-import './cart.dart';
-import './all_food.dart';
+import 'checkout.dart';
+import 'selected_category_food.dart';
 import './profile.dart';
 import './restaurant.dart';
+import './chats.dart';
+import './food_categories.dart';
+import 'my_carts.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,66 +20,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final tabs = [
-    Center(child: Home()),
-    Center(child: Home()),
-    Center(child: Home()),
-    Center(child: Home()),
+    const HomePage(),
+    const Chats(),
+    const MyCart(),
+    const Profile(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bg,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: bg,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 50,
-              child: Image.network('https://imgur.com/VWVm9ax.png'),
-            ),
-            SizedBox(
-              height: 50,
-              width: 50,
-              child: GestureDetector(
-                onTap: () {
-                  // Navigate to a new screen
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Profile(),
-                    ),
-                  );
-                },
-                child: Image.network('https://imgur.com/XNF5Qjp.png'),
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: Stack(
-        children: [
-          ListView(
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 5,
-                ),
-                child: Column(children: [
-                  searchBox(),
-                  exploreFood(),
-                  foodCategories(),
-                  allFood(),
-                  restaurant(),
-                ]),
-              ),
-            ],
-          ),
-        ],
-      ),
+      body: tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -107,6 +62,71 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: bg,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              height: 50,
+              child: Image.network('https://i.imgur.com/yfZLWge.png'),
+            ),
+            SizedBox(
+              height: 50,
+              width: 50,
+              child: GestureDetector(
+                onTap: () {
+                  // Navigate to a new screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Profile(),
+                    ),
+                  );
+                },
+                child: Image.network('https://i.imgur.com/Ojl5wri.png'),
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Stack(
+        children: [
+          ListView(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 5,
+                ),
+                child: Column(children: [
+                  searchBox(),
+                  exploreFood(),
+                  foodCategories(),
+                  allFood(),
+                  restaurant(),
+                ]),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget searchBox() {
     return Container(
@@ -116,7 +136,7 @@ class _HomeState extends State<Home> {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 1), // changes the shadow position
+            offset: const Offset(0, 1), // changes the shadow position
           ),
         ],
       ),
@@ -127,7 +147,7 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(15),
             color: yellow,
             child: Image.network(
-              'https://imgur.com/OfelT5c.png',
+              'https://i.imgur.com/l05wZzv.png',
               height: 10,
             ),
           ),
@@ -152,19 +172,19 @@ class _HomeState extends State<Home> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Cart(),
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => const Cart(),
+              //   ),
+              // );
             },
             child: Container(
               height: 48,
               padding: const EdgeInsets.all(15),
               color: yellow,
               child: Image.network(
-                'https://imgur.com/DYnFgH8.png',
+                'https://i.imgur.com/kCGpyTU.png',
                 height: 10,
               ),
             ),
@@ -176,7 +196,7 @@ class _HomeState extends State<Home> {
 
   Widget exploreFood() {
     return Container(
-      margin: const EdgeInsets.only(bottom: 15, top: 5),
+      margin: const EdgeInsets.only(bottom: 15, top: 15),
       child: Column(
         children: [
           const SizedBox(
@@ -192,13 +212,11 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Container(
-            child: Image.network(
-              'https://imgur.com/S879gkU.jpg',
-              height: 126,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
+          Image.network(
+            'https://i.imgur.com/ULweFpA.jpg',
+            height: 126,
+            width: double.infinity,
+            fit: BoxFit.cover,
           ),
         ],
       ),
@@ -222,12 +240,14 @@ class _HomeState extends State<Home> {
               child: ElevatedButton(
                 onPressed: () {
                   print('Login button pressed');
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AllFood()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FoodCategories()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: bg,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   foregroundColor: Colors.black,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -243,7 +263,7 @@ class _HomeState extends State<Home> {
         ),
         Container(
           height: 110,
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(5),
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: List.generate(
@@ -254,14 +274,14 @@ class _HomeState extends State<Home> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Restaurant(),
+                        builder: (context) => SellectedCategoryFood(),
                       ),
                     );
                   },
                   child: Container(
                     height: 90,
                     margin: const EdgeInsets.only(right: 15),
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 3),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
@@ -272,16 +292,14 @@ class _HomeState extends State<Home> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Container(
-                          child: Image.network(
-                            'https://imgur.com/GCg8pZJ.jpg',
-                            height: 62,
-                            width: 80,
-                            fit: BoxFit.cover,
-                          ),
+                        Image.network(
+                          'https://i.imgur.com/42h9Q55.png',
+                          height: 62,
+                          width: 80,
+                          fit: BoxFit.cover,
                         ),
                         const Text(
-                          'Pan Cake',
+                          'Non Veg',
                           style: TextStyle(color: black, fontSize: 12),
                         ),
                       ],
@@ -317,14 +335,13 @@ class _HomeState extends State<Home> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    print('Login button pressed');
+                    print(' button pressed');
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AllFood()));
+                        MaterialPageRoute(builder: (context) => Restaurants()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: bg,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     foregroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -338,7 +355,7 @@ class _HomeState extends State<Home> {
           const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             height: 98,
             child: ListView(
               scrollDirection: Axis.horizontal,
@@ -355,7 +372,7 @@ class _HomeState extends State<Home> {
                       );
                     },
                     child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      margin: const EdgeInsets.symmetric(horizontal: 5),
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -368,10 +385,10 @@ class _HomeState extends State<Home> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Container(
+                          SizedBox(
                             height: 46,
-                            child:
-                                Image.network('https://imgur.com/MH9neTr.png'),
+                            child: Image.network(
+                                'https://i.imgur.com/qNsRBeB.png'),
                           ),
                           const Text(
                             'Marcopolo Restaurant',
@@ -392,7 +409,7 @@ class _HomeState extends State<Home> {
 
   Widget allFood() {
     return Container(
-      margin: const EdgeInsets.only(bottom: 15),
+      margin: const EdgeInsets.only(bottom: 5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -414,14 +431,13 @@ class _HomeState extends State<Home> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    print('Login button pressed');
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AllFood()));
+                    print(' button pressed');
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => MyCart()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: bg,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     foregroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -435,7 +451,7 @@ class _HomeState extends State<Home> {
           const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             height: 163,
             child: ListView(
               scrollDirection: Axis.horizontal,
@@ -463,7 +479,7 @@ class _HomeState extends State<Home> {
                           height: 70,
                           width: 175,
                           child: Image.network(
-                            'https://imgur.com/GCg8pZJ.jpg',
+                            'https://i.imgur.com/28t6012.jpg',
                             width: 175,
                             height: 70,
                             fit: BoxFit.cover,
@@ -487,31 +503,26 @@ class _HomeState extends State<Home> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      child: Center(
-                                        child: RatingBar.builder(
-                                          initialRating: 3,
-                                          minRating: 1,
-                                          direction: Axis.horizontal,
-                                          allowHalfRating: true,
-                                          itemCount: 5,
-                                          itemSize: 13,
-                                          itemBuilder: (context, _) =>
-                                              const Icon(
-                                            Icons.star,
-                                            color: Colors.amber,
-                                          ),
-                                          onRatingUpdate: (rating) {
-                                            // Handle rating changes
-                                            print(rating);
-                                          },
+                                    Center(
+                                      child: RatingBar.builder(
+                                        initialRating: 3,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemSize: 13,
+                                        itemBuilder: (context, _) => const Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
                                         ),
+                                        onRatingUpdate: (rating) {
+                                          // Handle rating changes
+                                          print(rating);
+                                        },
                                       ),
                                     ),
-                                    Container(
-                                      child: const SizedBox(
-                                        child: Icon(Icons.favorite, size: 13),
-                                      ),
+                                    const SizedBox(
+                                      child: Icon(Icons.favorite, size: 13),
                                     ),
                                   ],
                                 ),
