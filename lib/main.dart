@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_management_system/features/authentication/ui/log_in.dart';
 import 'package:food_management_system/features/home/ui/welcome_screen.dart';
 
 void main() {
@@ -10,11 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food Management System',
-      // home: PaymentUsuccess(),
-      home: WelcomeScreen(),
+      home: Login(),
+      // home: WelcomeScreen(),
     );
   }
 }
